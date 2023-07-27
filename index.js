@@ -6,21 +6,28 @@ let array2 = [];
 let password1EL = document.getElementById("password1");
 let password2EL = document.getElementById("password2");
 
-if (array1.length === 0){
-    generatePassword();
-} else {array1 = []; array2 = []; generatePassword();}
-
 function generatePassword(){
+// generate a password on click to the Generate Password button, and clear the arrays if they are not empty
+if (array1.length === 0){
+    generateNewPassword();
+    } else {
+        array1 = []; 
+        array2 = []; 
+        generateNewPassword();
+        }
+    }
     // if array is empty, fill it with random characters
-    for (let i = 0; i < 7; i++){
-        let j = Math.floor(Math.random() * characters.length)
-        array1.push(characters[j]);
-    }
-    for (let k = 0; k < 7; k++){
-        let l = Math.floor(Math.random() * characters.length)
-        array2.push(characters[l]);
-    }
-    // if array is not empty, clear it and call the function again
-    password1EL.textContent = array1.join("");
-    password2EL.textContent = array2.join("");
+    
+function generateNewPassword(){
+for (let i = 0; i < 7; i++){
+    let j = Math.floor(Math.random() * characters.length)
+    array1.push(characters[j]);
+}
+for (let k = 0; k < 7; k++){
+    let l = Math.floor(Math.random() * characters.length)
+    array2.push(characters[l]);
+}
+// if array is not empty, clear it and call the function again
+password1EL.textContent = array1.join("");
+password2EL.textContent = array2.join("");
 }
